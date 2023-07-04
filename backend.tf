@@ -13,7 +13,7 @@
     organization = "nenyetech"
 
     workspaces {
-      name = "terraform-aws-pbl-19b"
+      name = "terraform-aws-pbl-19"
     }
   }
 }
