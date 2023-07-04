@@ -1,15 +1,15 @@
-#### creating sns topic for all the auto scaling groups
-resource "aws_sns_topic" "shallom-sns" {
-  name = "Default_CloudWatch_Alarms_Topic"
-}
-
 # Get list of availability zones
 data "aws_availability_zones" "available" {
   state = "available"
 }
 
+# creating sns topic for all the auto scaling groups
+resource "aws_sns_topic" "ACS-sns" {
+  name = "Default_CloudWatch_Alarms_Topic"
+}
 
-resource "aws_autoscaling_notification" "shallom_notifications" {
+# creating notification for all the auto scaling groups
+resource "aws_autoscaling_notification" "david_notifications" {
   group_names = [
     aws_autoscaling_group.bastion-asg.name,
     aws_autoscaling_group.nginx-asg.name,
@@ -23,15 +23,12 @@ resource "aws_autoscaling_notification" "shallom_notifications" {
     "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
   ]
 
-  topic_arn = aws_sns_topic.shallom-sns.arn
+  topic_arn = aws_sns_topic.ACS-sns.arn
 }
-
 
 resource "random_shuffle" "az_list" {
   input = data.aws_availability_zones.available.names
 }
-
-
 
 # ---- Autoscaling for bastion  hosts
 
@@ -44,6 +41,7 @@ resource "aws_autoscaling_group" "bastion-asg" {
   desired_capacity          = var.desired_capacity
 
   vpc_zone_identifier = var.public_subnets
+  
 
   launch_template {
     id      = aws_launch_template.bastion-launch-template.id
@@ -51,12 +49,11 @@ resource "aws_autoscaling_group" "bastion-asg" {
   }
   tag {
     key                 = "Name"
-    value               = "RCR-bastion"
+    value               = "ACS-bastion"
     propagate_at_launch = true
   }
 
 }
-
 
 # ------ Autoscslaling group for reverse proxy nginx ---------
 
@@ -66,10 +63,9 @@ resource "aws_autoscaling_group" "nginx-asg" {
   min_size                  = var.min_size
   health_check_grace_period = 300
   health_check_type         = "ELB"
-  desired_capacity          = var.desired_capacity
-
-  vpc_zone_identifier = var.public_subnets
+  desired_capacity          = 1
   
+  vpc_zone_identifier = var.public_subnets
 
 
   launch_template {
@@ -79,14 +75,15 @@ resource "aws_autoscaling_group" "nginx-asg" {
 
   tag {
     key                 = "Name"
-    value               = "RCR-nginx"
+    value               = "ACS-nginx"
     propagate_at_launch = true
   }
 
+
 }
 
-# attaching autoscaling group of nginx to external load balancer
+ # attaching autoscaling group of nginx to external load balancer
 resource "aws_autoscaling_attachment" "asg_attachment_nginx" {
   autoscaling_group_name = aws_autoscaling_group.nginx-asg.id
-  lb_target_group_arn    = var.nginx-alb-tgt
+  alb_target_group_arn   = var.nginx-alb-tgt
 }
