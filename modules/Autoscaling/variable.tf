@@ -42,7 +42,7 @@ variable "private_subnets" {
 
 variable "public_subnets" {
   type = list
-  description = "Seconf subnet for ecternal ALB"
+  description = "Second subnet for external ALB"
 }
 
 
