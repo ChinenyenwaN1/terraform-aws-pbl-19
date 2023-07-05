@@ -54,7 +54,7 @@ resource "aws_iam_role_policy_attachment" "ec2_instance_role_policy_attachment" 
   policy_arn = aws_iam_policy.ec2_instance_policy.arn
 }
 
-resource "aws_iam_instance_profile" "ip_ec2_instance_profile" {
+resource "aws_iam_instance_profile" "ip" {
   name = "aws_instance_profile"
   role = aws_iam_role.ec2_instance_role.name
 }
