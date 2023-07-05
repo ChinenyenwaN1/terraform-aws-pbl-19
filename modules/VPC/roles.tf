@@ -13,11 +13,15 @@ resource "aws_iam_role" "ec2_instance_role" {
       },
     ]
   })
-  tags = {
-    Name        = "aws assume role"
-    Environment = var.environment
-  }
+
+  tags = merge(
+    var.tags,
+    {
+      Name = format("%s-aws-assume-role", var.name)
+    },
+  )
 }
+
 
 resource "aws_iam_policy" "policy" {
   name        = "ec2_instance_policy"
@@ -36,13 +40,16 @@ resource "aws_iam_policy" "policy" {
 
   })
 
-  tags = {
-    Name        = "aws assume policy"
-    Environment = var.environment
-  }
+  tags = merge(
+    var.tags,
+    {
+      Name = format("%s-aws-assume-policy", var.name)
+    },
+  )
+
 }
 
-resource "aws_iam_role_policy_attachment" "policy_attachment" {
+resource "aws_iam_role_policy_attachment" "test-attach" {
   role       = "aws_iam_role.ec2_instance_role.name"
   policy_arn = aws_iam_policy.policy.arn
 }
@@ -51,4 +58,3 @@ resource "aws_iam_instance_profile" "ip" {
   name = "aws_instance_profile_test"
   role = aws_iam_role.ec2_instance_role.name
 }
-
