@@ -43,7 +43,7 @@ resource "aws_iam_policy" "policy" {
 }
 
 resource "aws_iam_role_policy_attachment" "policy_attachment" {
-  role       = aws_iam_role.ec2_instance_role.name
+  role       = "aws_iam_role.ec2_instance_role.name"
   policy_arn = aws_iam_policy.policy.arn
 }
 
