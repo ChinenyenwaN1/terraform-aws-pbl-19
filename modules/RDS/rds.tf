@@ -1,12 +1,12 @@
 # This section will create the subnet group for the RDS  instance using the private subnet
-resource "aws_db_subnet_group" "RCR-rds" {
-  name       = "rcr-rds"
+resource "aws_db_subnet_group" "ACS-rds" {
+  name       = "ACS-rds"
   subnet_ids = var.private_subnets
 
   tags = merge(
     var.tags,
     {
-      Name = "RCR-rds"
+      Name = "ACS-rds"
     },
   )
 }
