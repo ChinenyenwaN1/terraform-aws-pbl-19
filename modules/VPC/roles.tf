@@ -13,10 +13,13 @@ resource "aws_iam_role" "role" {
       },
     ]
   })
-  tags = {
-    Name        = "aws assume role"
-    Environment = var.environment
-  }
+
+  tags = merge(
+    var.tags,
+    {
+      Name = format("%s-aws-assume-role", var.name)
+    },
+  )
 }
 
 resource "aws_iam_policy" "policy" {
@@ -36,10 +39,13 @@ resource "aws_iam_policy" "policy" {
 
   })
 
-  tags = {
-    Name        = "aws assume policy"
-    Environment = var.environment
-  }
+  tags = merge(
+    var.tags,
+    {
+      Name = format("%s-aws-assume-policy", var.name)
+    },
+  )
+
 }
 
 resource "aws_iam_role_policy_attachment" "test-attach" {
