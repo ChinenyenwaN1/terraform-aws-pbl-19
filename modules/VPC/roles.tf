@@ -49,8 +49,8 @@ resource "aws_iam_policy" "ec2_instance_policy" {
 
 }
 
-resource "aws_iam_role_policy_attachment" "test-attach" {
-  role       = "aws_iam_role.ec2_instance_role.name"
+resource "aws_iam_role_policy_attachment" "ec2_instance_role_policy_attachment" {
+  role       = aws_iam_role.ec2_instance_role.name
   policy_arn = aws_iam_policy.ec2_instance_policy.arn
 }
 
