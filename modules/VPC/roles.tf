@@ -23,7 +23,7 @@ resource "aws_iam_role" "ec2_instance_role" {
 }
 
 
-resource "aws_iam_policy" "policy" {
+resource "aws_iam_policy" "ec2_instance_policy" {
   name        = "ec2_instance_policy"
   description = "A test policy"
   policy = jsonencode({
