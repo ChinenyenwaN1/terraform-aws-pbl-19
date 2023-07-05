@@ -1,4 +1,4 @@
-resource "aws_iam_role" "role" {
+resource "aws_iam_role" "ec2_instance_role" {
   name = "ec2_instance_role"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -13,13 +13,10 @@ resource "aws_iam_role" "role" {
       },
     ]
   })
-
-  tags = merge(
-    var.tags,
-    {
-      Name = format("%s-aws-assume-role", var.name)
-    },
-  )
+  tags = {
+    Name        = "aws assume role"
+    Environment = var.environment
+  }
 }
 
 resource "aws_iam_policy" "policy" {
@@ -39,13 +36,10 @@ resource "aws_iam_policy" "policy" {
 
   })
 
-  tags = merge(
-    var.tags,
-    {
-      Name = format("%s-aws-assume-policy", var.name)
-    },
-  )
-
+  tags = {
+    Name        = "aws assume policy"
+    Environment = var.environment
+  }
 }
 
 resource "aws_iam_role_policy_attachment" "test-attach" {
