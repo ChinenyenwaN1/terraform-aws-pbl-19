@@ -1,7 +1,7 @@
 # This section will create the subnet group for the RDS  instance using the private subnet
 resource "aws_db_subnet_group" "ACS-rds" {
   name       = "acs-rds"
-  subnet_ids = ["subnet-04c281974cefc37a8"]
+  subnet_ids = ["subnet-04c281974cefc37a8", "subnet-02211d2d50cf5e59d"]
 
   tags = merge(
     var.tags,
