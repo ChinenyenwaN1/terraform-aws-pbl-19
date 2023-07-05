@@ -42,12 +42,13 @@ resource "aws_iam_policy" "policy" {
   }
 }
 
-resource "aws_iam_role_policy_attachment" "test" {
-  name       = aws_iam_role.ec2_instance_role.name
+resource "aws_iam_role_policy_attachment" "policy_attachment" {
+  role       = aws_iam_role.ec2_instance_role.name
   policy_arn = aws_iam_policy.policy.arn
 }
 
-resource "aws_iam_instance_profile" "profile" {
+resource "aws_iam_instance_profile" "instance_profile" {
   name = "aws_instance_profile_test"
   role = aws_iam_role.ec2_instance_role.name
 }
+
