@@ -7,7 +7,7 @@
    associate_public_ip_address = true
    key_name                    = var.keypair
 
-# tags = merge(
+ tags = merge(
      var.tags,
      {
        Name = "ACS-Jenkins"
