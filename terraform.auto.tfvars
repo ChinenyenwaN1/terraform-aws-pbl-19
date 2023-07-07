@@ -1,10 +1,10 @@
 region = "us-east-1"
 
-ami-web = "ami-0e4167ba2cdb060d6"
+ami-web = "ami-0d4d9825a52f8b7c7"
 
-ami-bastion = "ami-03844e364d769bd6f"
+ami-bastion = "ami-0ecc56fb8b48e00c2"
 
-ami-nginx = "ami-0b151fc2de16f7db7"
+ami-nginx = "ami-022190a2b01eca11c"
 
 ami-sonar = "ami-072aaa7bb2ec938b4"
 
