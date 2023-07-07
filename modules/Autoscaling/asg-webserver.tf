@@ -20,6 +20,7 @@ resource "aws_launch_template" "wordpress-launch-template" {
     create_before_destroy = true
   }
 
+
   tag_specifications {
     resource_type = "instance"
 
