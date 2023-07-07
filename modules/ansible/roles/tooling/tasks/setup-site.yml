@@ -1,6 +1,6 @@
 - name: Clone the repository
   ansible.builtin.git:
-   repo: https://github.com/Micah-Shallom/tooling.git
+   repo: https://github.com/ChinenyenwaN1/tooling.git
    clone: yes
    dest: /home/ec2-user/tooling
  
