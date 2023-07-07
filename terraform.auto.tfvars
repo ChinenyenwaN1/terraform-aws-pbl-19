@@ -1,6 +1,6 @@
 region = "us-east-1"
 
-ami-web = "ami-0d71727104ff0b726"
+ami-web = "ami-0f055fadec42bd074"
 
 ami-bastion = "ami-03844e364d769bd6f"
 
