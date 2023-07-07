@@ -8,6 +8,10 @@ ami-nginx = "ami-0b151fc2de16f7db7"
 
 ami-sonar = "ami-072aaa7bb2ec938b4"
 
+ami-jenkins = "ami-072aaa7bb2ec938b4"
+
+ami-jfrog = "ami-072aaa7bb2ec938b4"
+
 vpc_cidr = "172.16.0.0/16"
 
 enable_dns_support = "true"
