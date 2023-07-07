@@ -1,5 +1,5 @@
 variable "subnets-compute" {
-    description = "public subnetes for compute instances"
+    description = "public subnets for compute instances"
 }
 variable "ami-jenkins" {
     type = string
