@@ -18,7 +18,7 @@ source "amazon-ebs" "terraform-bastion-prj-19" {
 
   source_ami_filter {
     filters = {
-      name                = "RHEL-8.2.0_HVM-20210907-x86_64-0-Hourly2-GP2"
+      name                = "RHEL-SAP-8.2.0_HVM-20211007-x86_64-0-Hourly2-GP2"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
