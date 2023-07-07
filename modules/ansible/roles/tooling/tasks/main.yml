@@ -11,12 +11,12 @@
   ansible.builtin.yum:
     enablerepo: "BaseOS,AppStream"
     name: "httpd"
-    state: present
+    state: latest
 
 - name: install mod_ssl on the webserver
   ansible.builtin.yum:
     name: "mod_ssl"
-    state: present 
+    state: latest
 
 - name: install PHP
   ansible.builtin.yum:
@@ -32,7 +32,7 @@
       - php-xml
       - php-intl 
       - php-json
-    state: present
+    state: latest
 
 - name: ensure php-fpm is started and enabled
   ansible.builtin.service:
