@@ -1,16 +1,16 @@
 region = "us-east-1"
 
-ami-web = "ami-0d4d9825a52f8b7c7"
+ami-web = "ami-04cec35cee2f2ddac"
 
-ami-bastion = "ami-0ecc56fb8b48e00c2"
+ami-bastion = "ami-0736a207de37eca10"
 
-ami-nginx = "ami-022190a2b01eca11c"
+ami-nginx = "ami-003f67aed1633c355"
 
-ami-sonar = "ami-072aaa7bb2ec938b4"
+ami-sonar = "ami-07ea9a9df2641b389"
 
-ami-jenkins = "ami-072aaa7bb2ec938b4"
+ami-jenkins = "ami-07ea9a9df2641b389"
 
-ami-jfrog = "ami-072aaa7bb2ec938b4"
+ami-jfrog = "ami-07ea9a9df2641b389"
 
 vpc_cidr = "172.16.0.0/16"
 
@@ -24,7 +24,7 @@ preferred_number_of_private_subnets = 4
 
 account_no = 567146825056
 
-keypair = "Newestkey"
+keypair = "terraform.pem"
 
 db-username = "nenye"
 
