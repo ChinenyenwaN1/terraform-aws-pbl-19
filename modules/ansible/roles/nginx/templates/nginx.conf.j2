@@ -36,7 +36,7 @@ http {
         listen       443 http2 ssl;
         listen       [::]:443 http2 ssl;
         root          /var/www/html;
-        server_name  *.Nenyetech.ml;
+        server_name  *.nenyetech.ml;
         
         
      
@@ -54,7 +54,7 @@ http {
          
         location / {
             proxy_set_header             Host $host;
-            proxy_pass                   https://internal-ialb-1680261654.us-east-1.elb.amazonaws.com/; 
+            proxy_pass                   https://internal-ialb-261302115.us-east-1.elb.amazonaws.com/; 
            }
     }
 }

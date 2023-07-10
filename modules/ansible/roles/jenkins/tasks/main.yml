@@ -3,7 +3,7 @@
 - name: import repository key from jenkins
   ansible.builtin.rpm_key:
     state: present
-    key: http://pkg.jenkins.io/redhat-stable/jenkins.io.key
+    key: https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
 
 - name: add the repository key to repos list
   ansible.builtin.get_url:
