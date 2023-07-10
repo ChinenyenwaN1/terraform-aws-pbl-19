@@ -24,7 +24,7 @@ preferred_number_of_private_subnets = 4
 
 account_no = 567146825056
 
-keypair = "terraform.pem"
+keypair = "terraform"
 
 db-username = "nenye"
 
