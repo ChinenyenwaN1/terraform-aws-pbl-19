@@ -1,6 +1,6 @@
  # create instance for jenkins
  resource "aws_instance" "Jenkins" {
-   ami                         = "ami-07ea9a9df2641b389"
+   ami                         = "ami-0ac91b9cd65fa839b"
    instance_type               = "t2.micro"
    subnet_id                   = var.subnets-compute
    vpc_security_group_ids      = var.sg-compute
@@ -35,7 +35,7 @@
 
  # create instance for artifactory
  resource "aws_instance" "artifactory" {
-   ami                         = "ami-07ea9a9df2641b389"
+   ami                         = "ami-0ac91b9cd65fa839b"
    instance_type               = "t2.medium"
    subnet_id                   = var.subnets-compute
    vpc_security_group_ids      = var.sg-compute
