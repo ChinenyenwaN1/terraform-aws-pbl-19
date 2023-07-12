@@ -7,6 +7,7 @@
    associate_public_ip_address = true
    key_name                    = var.keypair
 
+
  tags = merge(
      var.tags,
      {
@@ -23,7 +24,6 @@
    vpc_security_group_ids      = var.sg-compute
    associate_public_ip_address = true
    key_name                    = var.keypair
-
 
     tags = merge(
      var.tags,
@@ -50,3 +50,4 @@
      },
    )
  }
+
