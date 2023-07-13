@@ -15,7 +15,7 @@ source "amazon-ebs" "terraform-web-prj-19" {
   region        = var.region
   source_ami_filter {
     filters = {
-      name                = "RHEL-SAP-8.2.0_HVM-20211007-x86_64-0-Hourly2-GP2"
+      name                = "RHEL-8.2_HVM-20200803-x86_64-0-Hourly2-GP2"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
@@ -23,13 +23,13 @@ source "amazon-ebs" "terraform-web-prj-19" {
     owners      = ["309956199498"]
   }
 
-  # Define the availability zone
+   # Define the availability zone
   availability_zone = "us-east-1a"
 
   # Specify the VPC and subnet IDs
   vpc_id    = "vpc-081885dd761c68d59"
   subnet_id = "subnet-0856d3605fbbc15ad"
-
+  
   ssh_username = "ec2-user"
   tag {
     key   = "Name"
