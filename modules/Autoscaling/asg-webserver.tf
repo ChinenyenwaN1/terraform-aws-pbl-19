@@ -19,7 +19,6 @@ resource "aws_launch_template" "wordpress-launch-template" {
     create_before_destroy = true
   }
 
-
   tag_specifications {
     resource_type = "instance"
 
@@ -58,7 +57,6 @@ resource "aws_launch_template" "tooling-launch-template" {
   tag_specifications {
     resource_type = "instance"
 
-
  tags = merge(
     var.tags,
     {
@@ -69,4 +67,3 @@ resource "aws_launch_template" "tooling-launch-template" {
 
   # user_data = filebase64("${path.module}/tooling.sh")
 }
-
