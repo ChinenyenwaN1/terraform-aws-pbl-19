@@ -5,7 +5,6 @@ variable "region" {
 
 locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
 
-
 # source blocks are generated from your builders; a source can be referenced in
 # build blocks. A build block runs provisioners and post-processors on a
 # source.
@@ -29,14 +28,13 @@ source "amazon-ebs" "terraform-web-prj-19" {
   # Specify the VPC and subnet IDs
   vpc_id    = "vpc-081885dd761c68d59"
   subnet_id = "subnet-0856d3605fbbc15ad"
-  
+
   ssh_username = "ec2-user"
   tag {
     key   = "Name"
     value = "terraform-web-prj-19"
   }
 }
-
 
 # a build block invokes sources and runs provisioning steps on them.
 build {
