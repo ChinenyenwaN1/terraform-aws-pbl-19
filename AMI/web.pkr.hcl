@@ -22,7 +22,7 @@ source "amazon-ebs" "terraform-web-prj-19" {
     owners      = ["309956199498"]
   }
 
-   # Define the availability zone
+  # Define the availability zone
   availability_zone = "us-east-1a"
 
   # Specify the VPC and subnet IDs
