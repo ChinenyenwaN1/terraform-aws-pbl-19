@@ -6,7 +6,7 @@ ami-bastion = "ami-03eb79636f29e382a"
 
 ami-nginx = "ami-0d26ddf4fff406899"
 
-ami-sonar = "ami-08267b15e7b961442"
+ami-sonar = "ami-0feb1154d57c05c3d"
 
 vpc_cidr = "172.16.0.0/16"
 
