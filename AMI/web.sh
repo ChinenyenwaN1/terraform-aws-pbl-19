@@ -1,7 +1,17 @@
 #!/bin/bash
-sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-sudo yum install -y dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
-sudo yum install -y mysql wget vim telnet htop git python3 net-tools zip
+sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+sudo yum install -y dnf-utils http://rpms.remirepo.net/enterprise/remi-release-9.rpm 
+sudo yum update -y 
+sudo yum upgrade -y
+sudo yum install mysql -y
+sudo yum install wget -y  
+sudo yum install vim -y
+sudo yum install telnet -y 
+sudo yum install htop -y
+sudo yum git -y 
+sudo yum install python3 -y
+sudo yum install net-tools -y 
+sudo yum install chrony -y
 sudo systemctl start chronyd
 sudo systemctl enable chronyd
 sudo yum module reset php -y
@@ -27,6 +37,11 @@ sudo echo "export JAVA_HOME=$(dirname $(dirname $(readlink $(readlink $(which ja
 sudo echo "export PATH=$PATH:$JAVA_HOME/bin" >> ~/.bash_profile
 sudo echo "export CLASSPATH=.:$JAVA_HOME/jre/lib:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar" >> ~/.bash_profile
 source ~/.bash_profile
+
+
+#installing self signed certificate for apache
+sudo yum install -y mod_ssl
+
 
 #installing self signed certificate for apache
 sudo yum install -y mod_ssl

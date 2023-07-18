@@ -61,16 +61,6 @@ variable "ami-sonar" {
   default = ""
 }
 
-variable "ami-jenkins" {
-  type    = string
-  default = ""
-}
-
-variable "ami-jfrog" {
-  type    = string
-  default = ""
-}
-
 variable "account_no" {
   type = number
 
