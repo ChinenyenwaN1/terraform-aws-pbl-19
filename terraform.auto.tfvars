@@ -2,7 +2,7 @@ region = "us-east-1"
 
 ami-web = "ami-02df07f44ae992281"
 
-ami-bastion = "ami-03eb79636f29e382a"
+ami-bastion = "ami-08267b15e7b961442"
 
 ami-nginx = "ami-0d26ddf4fff406899"
 
