@@ -5,18 +5,18 @@
     src: fs-0ac41a821de807a7e:/
     fstype: efs
     opts: nosuid,noexec,defaults,tls,accesspoint=fsap-039fcea240f02d071
-    state: mounted
+    state: present
 
 - name: install httpd on the webserver
   ansible.builtin.yum:
     enablerepo: "BaseOS,AppStream"
     name: "httpd"
-    state: latest
+    state: present
 
 - name: install mod_ssl on the webserver
   ansible.builtin.yum:
     name: "mod_ssl"
-    state: latest
+    state: present
 
 - name: install PHP
   ansible.builtin.yum:
@@ -32,7 +32,7 @@
       - php-xml
       - php-intl 
       - php-json
-    state: latest
+    state: present
 
 - name: ensure php-fpm is started and enabled
   ansible.builtin.service:
