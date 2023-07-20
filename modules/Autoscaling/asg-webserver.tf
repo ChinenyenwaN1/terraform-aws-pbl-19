@@ -9,7 +9,6 @@ resource "aws_launch_template" "wordpress-launch-template" {
     name = var.instance_profile
   }
 
-
   key_name = var.keypair
 
   placement {
@@ -34,7 +33,6 @@ resource "aws_launch_template" "wordpress-launch-template" {
   # user_data = filebase64("${path.module}/wordpress.sh")
 }
 
-
 # launch template for toooling
 resource "aws_launch_template" "tooling-launch-template" {
   image_id               = var.ami-web
@@ -46,7 +44,6 @@ resource "aws_launch_template" "tooling-launch-template" {
   }
 
   key_name = var.keypair
-
 
   placement {
     availability_zone = "random_shuffle.az_list.result"
