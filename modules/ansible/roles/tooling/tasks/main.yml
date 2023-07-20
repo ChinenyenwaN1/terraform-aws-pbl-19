@@ -2,10 +2,10 @@
 - name: mounting share(s)
   mount:
     path: /var/www
-    src: fs-0ac41a821de807a7e:/
+    src: fs-056a3acb95d7b7c5d:/
     fstype: efs
-    opts: nosuid,noexec,defaults,tls,accesspoint=fsap-039fcea240f02d071
-    state: present
+    opts: nosuid,noexec,defaults,tls,accesspoint=fsap-005b1eb5b619f58cf
+    state: mounted
 
 - name: install httpd on the webserver
   ansible.builtin.yum:
@@ -21,24 +21,24 @@
 - name: install PHP
   ansible.builtin.yum:
     name:
-      - php 
+      - php
       - php-mysqlnd
-      - php-gd 
+      - php-gd
       - php-curl
       - php-common
       - php-fpm
       - php-mbstring
-      - php-opcache 
+      - php-opcache
       - php-xml
-      - php-intl 
+      - php-intl
       - php-json
     state: present
 
 - name: ensure php-fpm is started and enabled
   ansible.builtin.service:
-     name: php-fpm
-     state: reloaded
-     enabled: yes
+    name: php-fpm
+    state: reloaded
+    enabled: yes
   notify: Restart php-fpm
 
 - import_tasks: setup-site.yml
@@ -47,37 +47,6 @@
 
 - name: ensure httpd is started and enabled
   ansible.builtin.service:
-     name: httpd 
-     state: started 
-     enabled: yes
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    name: httpd
+    state: started
+    enabled: yes
