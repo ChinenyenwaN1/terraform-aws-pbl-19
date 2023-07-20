@@ -6,7 +6,6 @@ resource "aws_acm_certificate" "nenyetech" {
   validation_method = "DNS"
 }
 
-
 # calling the hosted zone
 data "aws_route53_zone" "nenyetech" {
   name         = "nenyetech.ml"
@@ -36,7 +35,6 @@ resource "aws_acm_certificate_validation" "nenyetech" {
   certificate_arn         = aws_acm_certificate.nenyetech.arn
   validation_record_fqdns = [for record in aws_route53_record.nenyetech : record.fqdn]
 }
-
 
 # create records for tooling
 resource "aws_route53_record" "tooling" {
