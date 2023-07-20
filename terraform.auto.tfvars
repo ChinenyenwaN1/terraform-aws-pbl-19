@@ -1,12 +1,12 @@
 region = "us-east-1"
 
-ami-web = "ami-0772a6f7162bd6a99"
+ami-web = "ami-05bc53267be32911c"
 
-ami-bastion = "ami-08267b15e7b961442"
+ami-bastion = "ami-0dbf67ed49370bdf7"
 
-ami-nginx = "ami-0d26ddf4fff406899"
+ami-nginx = "ami-05aac51ab14268324"
 
-ami-sonar = "ami-0feb1154d57c05c3d"
+ami-sonar = "ami-069a40cac03e22795"
 
 vpc_cidr = "172.16.0.0/16"
 
@@ -26,9 +26,11 @@ db-username = "nenye"
 
 db-password = "nenyedevopproj"
 
+
 tags = {
   Enviroment      = "Production"
   Owner-Email     = "johnchinenye6@gmail.com"
   Managed-By      = "Terraform"
   Billing-Account = "567146825056"
 }
+
